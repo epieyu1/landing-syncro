@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const demoForm = document.getElementById('demo-form');
     // TODO: Reemplazar con URL real de tu función o configurar rewrite
     const FUNCTION_URL = "https://us-central1-alua-2ecc9.cloudfunctions.net/createTrialAccount";
-    const RECAPTCHA_SITE_KEY = "6Lf85l4sAAAAAEHpqBszoaWUPdTb1PrTNOgK7yLD";
+    const RECAPTCHA_SITE_KEY = "6Lf42l8sAAAAAHuYaukYyY1Bn27udMulzAf3JKBQu";
 
     if (demoForm) {
         demoForm.addEventListener('submit', async function (e) {
