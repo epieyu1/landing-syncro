@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const demoForm = document.getElementById('demo-form');
     // TODO: Reemplazar con URL real de tu función o configurar rewrite
     const FUNCTION_URL = "https://us-central1-alua-2ecc9.cloudfunctions.net/createTrialAccount";
-    const RECAPTCHA_SITE_KEY = "6Lf42l8sAAAAAHuYaukYyY1Bn27udMulzAf3JKBQu";
+    const RECAPTCHA_SITE_KEY = "6LdMMl8sAAAAAKJ6sCPnSn_yfxs2fl04clHhdV75";
 
     if (demoForm) {
         demoForm.addEventListener('submit', async function (e) {
@@ -142,11 +142,11 @@ document.addEventListener('DOMContentLoaded', function () {
             lucide.createIcons();
 
             try {
-                // 1. Execute reCAPTCHA (Safely waiting for library to load)
+                // 1. Execute reCAPTCHA (Safely waiting for Enterprise library to load)
                 const token = await new Promise((resolve, reject) => {
-                    grecaptcha.ready(async () => {
+                    grecaptcha.enterprise.ready(async () => {
                         try {
-                            const res = await grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'submit' });
+                            const res = await grecaptcha.enterprise.execute(RECAPTCHA_SITE_KEY, { action: 'submit' });
                             resolve(res);
                         } catch (err) {
                             reject(err);
