@@ -142,11 +142,11 @@ document.addEventListener('DOMContentLoaded', function () {
             lucide.createIcons();
 
             try {
-                // 1. Execute reCAPTCHA (Safely waiting for Enterprise library to load)
+                // 1. Execute reCAPTCHA (Safely waiting for library to load)
                 const token = await new Promise((resolve, reject) => {
-                    grecaptcha.enterprise.ready(async () => {
+                    grecaptcha.ready(async () => {
                         try {
-                            const res = await grecaptcha.enterprise.execute(RECAPTCHA_SITE_KEY, { action: 'submit' });
+                            const res = await grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'submit' });
                             resolve(res);
                         } catch (err) {
                             reject(err);
