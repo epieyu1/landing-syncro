@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const demoForm = document.getElementById('demo-form');
     // TODO: Reemplazar con URL real de tu función o configurar rewrite
     const FUNCTION_URL = "https://us-central1-alua-2ecc9.cloudfunctions.net/createTrialAccount";
-    const RECAPTCHA_SITE_KEY = "6Lf42l8sAAAAAHuYaukYyY1Bn27udMulzAf3JKBQu";
+    const RECAPTCHA_SITE_KEY = "6Lf42l8sAAAAAHuYaukYy1Bn27uDMuIzAf3JKBQu";
 
     if (demoForm) {
         demoForm.addEventListener('submit', async function (e) {
@@ -144,18 +144,26 @@ document.addEventListener('DOMContentLoaded', function () {
             try {
                 // 1. Execute reCAPTCHA (Safely waiting for Enterprise library to load)
                 const token = await new Promise((resolve, reject) => {
-                    if (typeof grecaptcha === 'undefined' || !grecaptcha.enterprise) {
-                        reject(new Error('reCAPTCHA Enterprise library no detectada. Verifique AdBlockers.'));
-                        return;
-                    }
-                    grecaptcha.enterprise.ready(async () => {
-                        try {
-                            const res = await grecaptcha.enterprise.execute(RECAPTCHA_SITE_KEY, { action: 'submit' });
-                            resolve(res);
-                        } catch (err) {
-                            reject(err);
+                    // Wait for reCAPTCHA to load (max 5 seconds)
+                    let attempts = 0;
+                    const checkRecaptcha = () => {
+                        if (typeof grecaptcha !== 'undefined' && grecaptcha.enterprise) {
+                            grecaptcha.enterprise.ready(async () => {
+                                try {
+                                    const res = await grecaptcha.enterprise.execute(RECAPTCHA_SITE_KEY, { action: 'submit' });
+                                    resolve(res);
+                                } catch (err) {
+                                    reject(new Error(`reCAPTCHA execution failed: ${err.message}`));
+                                }
+                            });
+                        } else if (attempts < 50) {
+                            attempts++;
+                            setTimeout(checkRecaptcha, 100);
+                        } else {
+                            reject(new Error('reCAPTCHA Enterprise library no pudo cargarse. Verifique AdBlockers o la conexión.'));
                         }
-                    });
+                    };
+                    checkRecaptcha();
                 });
 
                 // 2. Prepare Payload
