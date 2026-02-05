@@ -21,7 +21,8 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800;900&display=swap"
         rel="stylesheet">
 
     <!-- Lucide Icons -->
@@ -31,15 +32,12 @@
     <link rel="stylesheet" href="styles.css">
 
     <!-- ReCAPTCHA Enterprise -->
-    <script src="https://www.google.com/recaptcha/enterprise.js?render=6Lf42l8sAAAAAHuYaukYy1Bn27uDMuIzAf3JKBQu"></script>
+    <script
+        src="https://www.google.com/recaptcha/enterprise.js?render=6Lf42l8sAAAAAHuYaukYy1Bn27uDMuIzAf3JKBQu"></script>
 </head>
 
 <body>
-    <!-- WhatsApp Floating Button -->
-    <a href="https://wa.link/4pnu2z" target="_blank" rel="noopener noreferrer" class="whatsapp-float"
-        aria-label="Contactar por WhatsApp">
-        <i data-lucide="message-circle"></i>
-    </a>
+
 
     <!-- Header -->
     <header class="header" id="header">
@@ -57,7 +55,7 @@
             </ul>
 
             <div class="nav-buttons">
-                <a href="#contact" class="btn btn-primary">Agendar Demo</a>
+                <a href="#contact" class="btn btn-primary btn-md">Agendar Demo</a>
                 <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menú">
                     <i data-lucide="menu"></i>
                 </button>
@@ -259,7 +257,7 @@
                         <li><i data-lucide="check"></i> Soporte Email/WhatsApp</li>
                     </ul>
 
-                    <a href="#contact" class="btn btn-secondary btn-block">Comenzar Ahora</a>
+                    <a href="#contact" class="btn btn-primary btn-block btn-md">Comenzar Ahora</a>
                 </div>
 
                 <!-- Plan Profesional -->
@@ -285,7 +283,7 @@
                         <li><i data-lucide="check"></i> Soporte <strong>Prioritario</strong> 24/7</li>
                     </ul>
 
-                    <a href="#contact" class="btn btn-primary btn-block">Elegir Profesional</a>
+                    <a href="#contact" class="btn btn-primary btn-block btn-md">Elegir Profesional</a>
                 </div>
             </div>
 
@@ -297,44 +295,108 @@
     </section>
 
     <!-- Download Section -->
-    <section class="download-section" id="download">
+    <!-- Support Section (Download + FAQ) -->
+    <section class="support-section" id="download">
         <div class="container">
-            <div class="section-header">
-                <span class="section-badge">Descargar</span>
-                <h2>Descarga Syncro Motos <span class="gradient-text">Gratis</span></h2>
-                <p>Disponible para Windows y macOS. Prueba 14 días sin compromiso.</p>
-            </div>
-
-            <div class="download-grid">
-                <a href="https://github.com/tu-usuario/syncro-motos/releases/latest/download/Syncro-Motos-Setup.exe"
-                    class="download-card animate-on-scroll" target="_blank" rel="noopener noreferrer">
-                    <div class="download-icon">
-                        <i data-lucide="monitor"></i>
+            <div class="support-wrapper">
+                <!-- Left Column: Download -->
+                <div class="download-column">
+                    <div class="section-header align-left">
+                        <span class="section-badge">Descargar</span>
+                        <h2>Lleva tu taller al <span class="gradient-text">siguiente nivel</span></h2>
+                        <p>Disponible para Windows y macOS. Prueba 14 días sin compromiso.</p>
                     </div>
-                    <h4>Windows</h4>
-                    <p>Windows 10/11 (64-bit)</p>
-                    <span class="download-btn">
-                        <i data-lucide="download"></i> Descargar .exe
-                    </span>
-                </a>
 
-                <a href="https://github.com/tu-usuario/syncro-motos/releases/latest/download/Syncro-Motos.dmg"
-                    class="download-card animate-on-scroll" target="_blank" rel="noopener noreferrer">
-                    <div class="download-icon">
-                        <i data-lucide="laptop"></i>
+                    <div class="download-grid">
+                        <a href="https://github.com/tu-usuario/syncro-motos/releases/latest/download/Syncro-Motos-Setup.exe"
+                            class="download-card" target="_blank" rel="noopener noreferrer">
+                            <div class="download-icon">
+                                <i data-lucide="monitor"></i>
+                            </div>
+                            <div class="download-info">
+                                <h4>Windows</h4>
+                                <p>Windows 10/11 (64-bit)</p>
+                            </div>
+                            <span class="btn btn-primary btn-block btn-md">
+                                <i data-lucide="download"></i> Descargar .exe
+                            </span>
+                        </a>
+
+                        <a href="https://github.com/tu-usuario/syncro-motos/releases/latest/download/Syncro-Motos.dmg"
+                            class="download-card" target="_blank" rel="noopener noreferrer">
+                            <div class="download-icon">
+                                <i data-lucide="laptop"></i>
+                            </div>
+                            <div class="download-info">
+                                <h4>macOS</h4>
+                                <p>macOS 10.15+ (Intel & M1/M2)</p>
+                            </div>
+                            <span class="btn btn-primary btn-block btn-md">
+                                <i data-lucide="download"></i> Descargar .dmg
+                            </span>
+                        </a>
                     </div>
-                    <h4>macOS</h4>
-                    <p>macOS 10.15+ (Intel & M1/M2)</p>
-                    <span class="download-btn">
-                        <i data-lucide="download"></i> Descargar .dmg
-                    </span>
-                </a>
-            </div>
 
-            <p class="download-note">
-                <i data-lucide="info"></i>
-                Después de descargar, recibirás un correo con tus credenciales de acceso.
-            </p>
+                    <p class="download-note">
+                        <i data-lucide="info"></i>
+                        Recibirás un correo con tus credenciales tras la descarga.
+                    </p>
+                </div>
+
+                <!-- Right Column: FAQ -->
+                <div class="faq-column" id="faq">
+                    <div class="section-header align-left">
+                        <span class="section-badge">Soporte</span>
+                        <h2>Preguntas <span class="gradient-text">Frecuentes</span></h2>
+                    </div>
+
+                    <div class="faq-list">
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>¿Qué sistema operativo necesito?</span>
+                                <i data-lucide="chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Syncro Motos funciona en Windows 10/11 y macOS 10.15+. Es una App nativa de
+                                    escritorio.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>¿Incluye facturación DIAN?</span>
+                                <i data-lucide="chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Sí, incluimos un asistente para habilitarte ante la DIAN y emitir facturas
+                                    electrónicas fácilmente.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>¿Puedo migrar mis datos?</span>
+                                <i data-lucide="chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Sí, nuestro equipo te ayuda a migrar tu inventario y clientes desde Excel sin costo.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>¿Funciona sin internet?</span>
+                                <i data-lucide="chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Sí, es offline-first. Los datos se sincronizan automáticamente al detectar conexión.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -365,7 +427,7 @@
 
                     <div class="contact-direct">
                         <p>¿Prefieres contacto directo?</p>
-                        <a href="https://wa.link/4pnu2z" class="btn btn-whatsapp" target="_blank"
+                        <a href="https://wa.link/4pnu2z" class="btn btn-primary btn-md" target="_blank"
                             rel="noopener noreferrer">
                             <i data-lucide="message-circle"></i> WhatsApp
                         </a>
@@ -413,90 +475,13 @@
         </div>
     </section>
 
-    <!-- FAQ Section -->
-    <section class="faq-section" id="faq">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-badge">FAQ</span>
-                <h2>Preguntas <span class="gradient-text">Frecuentes</span></h2>
-            </div>
 
-            <div class="faq-list">
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>¿Qué sistema operativo necesito?</span>
-                        <i data-lucide="chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Syncro Motos funciona en Windows 10/11 (64-bit) y macOS 10.15 o superior. Es una aplicación
-                            de escritorio que no requiere navegador.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>¿Cómo funciona la facturación electrónica DIAN?</span>
-                        <i data-lucide="chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Incluimos un wizard paso a paso para habilitarte ante la DIAN. Solo necesitas tu RUT y seguir
-                            las instrucciones. Todo está integrado, sin necesidad de software externo.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>¿Puedo migrar mis datos actuales?</span>
-                        <i data-lucide="chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Sí, ofrecemos migración asistida de tus datos desde Excel u otros sistemas. Nuestro equipo te
-                            ayuda en el proceso sin costo adicional.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>¿Ofrecen capacitación?</span>
-                        <i data-lucide="chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Incluimos capacitación virtual gratuita para ti y tu equipo. Además, la app tiene un tour
-                            guiado interactivo para aprender mientras usas.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>¿Hay compromiso de permanencia?</span>
-                        <i data-lucide="chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p>No, puedes cancelar en cualquier momento. Si pagas anual y cancelas, te devolvemos
-                            proporcionalmente los meses no usados.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>¿Funciona sin internet?</span>
-                        <i data-lucide="chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Sí, Syncro Motos es offline-first. Puedes trabajar sin conexión y los datos se sincronizan
-                            automáticamente cuando vuelves a tener internet.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <img src="assets/logo.png" alt="Syncro Motos" class="footer-logo">
                     <h4>Syncro Motos</h4>
                     <p>Software de gestión integral para talleres y concesionarios de motocicletas.</p>
                     <p class="footer-tagline">Hecho con 🧡 en Colombia</p>
