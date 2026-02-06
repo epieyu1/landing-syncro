@@ -218,7 +218,7 @@ img {
     padding: 0.75rem 1.25rem;
     font-weight: 800;
     border-radius: 9999px;
-    box-shadow: 0 8px 24px rgba(5,150,105,0.18);
+    box-shadow: 0 8px 24px rgba(5, 150, 105, 0.18);
     transition: transform var(--transition-normal), box-shadow var(--transition-normal), opacity var(--transition-fast);
     display: inline-flex;
     align-items: center;
@@ -227,7 +227,7 @@ img {
 
 .success-cta:hover {
     transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 12px 30px rgba(5,150,105,0.22);
+    box-shadow: 0 12px 30px rgba(5, 150, 105, 0.22);
 }
 
 /* Make the success CTA full width on small screens for better tap targets */
@@ -1325,13 +1325,13 @@ section {
         right: 0;
         bottom: 0;
         z-index: 1001;
-        background: linear-gradient(90deg, rgba(255,102,0,1), rgba(255,157,0,1));
+        background: linear-gradient(90deg, rgba(255, 102, 0, 1), rgba(255, 157, 0, 1));
         color: white;
         padding: 0.5rem 1rem;
         gap: 0.75rem;
         align-items: center;
         justify-content: space-between;
-        box-shadow: 0 -6px 24px rgba(0,0,0,0.12);
+        box-shadow: 0 -6px 24px rgba(0, 0, 0, 0.12);
     }
 
     .trial-text {
@@ -1356,25 +1356,36 @@ section {
 
 /* Ensure the sticky bar is not displayed on desktop */
 @media (min-width: 769px) {
-    .trial-sticky { display: none !important; }
+    .trial-sticky {
+        display: none !important;
+    }
 }
 
 /* ==========================================
    MOBILE MODAL FORM STYLES
    ========================================== */
 .modal-overlay {
-    display: none; /* shown via .open class */
+    /* Keep the overlay in the flow but hidden by opacity for smooth animations.
+       display:flex allows the overlay to be visible when opacity transitions to 1.
+       On desktop .modal-overlay is forced hidden via media query. */
+    display: flex;
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0, 0, 0, 0.5);
     z-index: 1100;
     align-items: center;
     justify-content: center;
     padding: 1rem;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 300ms cubic-bezier(0.2, 0.8, 0.2, 1), visibility 300ms ease;
 }
 
 .modal-overlay.open {
-    display: flex;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
 }
 
 .modal {
@@ -1385,6 +1396,11 @@ section {
     padding: 1.25rem;
     box-shadow: var(--shadow-xl);
     position: relative;
+    /* Prepare for animated open/close: fade + scale + translate */
+    transform-origin: center top;
+    transform: scale(0.96) translateY(12px);
+    opacity: 0;
+    transition: transform 300ms cubic-bezier(0.2, 0.8, 0.2, 1), opacity 300ms cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .modal h3 {
@@ -1405,16 +1421,33 @@ section {
 
 /* Ensure modal styles only affect small screens visually (but can be opened by JS) */
 @media (min-width: 769px) {
-    .modal-overlay { display: none !important; }
+    .modal-overlay {
+        display: none !important;
+    }
 }
 
 /* ==========================================
    ANIMATIONS
    ========================================== */
+/* When overlay is open, bring modal to full size and opacity */
+.modal-overlay.open .modal {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+}
+
 .animate-on-scroll {
     opacity: 0;
     transform: translateY(20px);
     transition: all 0.6s ease-out;
+
+    /* Respect reduced motion preferences */
+    @media (prefers-reduced-motion: reduce) {
+
+        .modal-overlay,
+        .modal {
+            transition: none !important;
+        }
+    }
 }
 
 .animate-on-scroll.visible {

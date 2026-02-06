@@ -43,6 +43,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // ==========================================
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
+            // If this is the mobile trial CTA, let its handler decide (it opens a modal on mobile)
+            if (this.classList && this.classList.contains('trial-cta')) return;
             e.preventDefault();
             const targetId = this.getAttribute('href');
 
@@ -270,6 +272,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (modalClose && modalOverlay) {
         modalClose.addEventListener('click', function () {
+            if (document.activeElement instanceof HTMLElement) document.activeElement.blur();
             modalOverlay.classList.remove('open');
             modalOverlay.setAttribute('aria-hidden', 'true');
             document.body.style.overflow = '';
@@ -277,6 +280,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         modalOverlay.addEventListener('click', function (e) {
             if (e.target === modalOverlay) {
+                if (document.activeElement instanceof HTMLElement) document.activeElement.blur();
                 modalOverlay.classList.remove('open');
                 modalOverlay.setAttribute('aria-hidden', 'true');
                 document.body.style.overflow = '';
@@ -286,11 +290,64 @@ document.addEventListener('DOMContentLoaded', function () {
         // Close on Escape
         document.addEventListener('keydown', function (e) {
             if (e.key === 'Escape' && modalOverlay.classList.contains('open')) {
+                if (document.activeElement instanceof HTMLElement) document.activeElement.blur();
                 modalOverlay.classList.remove('open');
                 modalOverlay.setAttribute('aria-hidden', 'true');
                 document.body.style.overflow = '';
             }
         });
+    }
+
+    // Close modal with animation when clicking the success CTA, then navigate to the anchor
+    document.addEventListener('click', function (e) {
+        const successBtn = e.target.closest && e.target.closest('.success-cta');
+        if (!successBtn) return;
+
+        const href = successBtn.getAttribute('href');
+        // If it's an internal anchor like #pricing, and the modal is open, animate close first
+        if (href && href.startsWith('#') && modalOverlay && modalOverlay.classList.contains('open')) {
+            e.preventDefault();
+
+            // Close modal (this will trigger CSS transition)
+            if (document.activeElement instanceof HTMLElement) document.activeElement.blur();
+            modalOverlay.classList.remove('open');
+            modalOverlay.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+
+            // After transition ends (or fallback timeout) perform the scroll
+            let handled = false;
+            const onTransitionEnd = (ev) => {
+                if (ev.target !== modalOverlay) return;
+                if (handled) return;
+                handled = true;
+                modalOverlay.removeEventListener('transitionend', onTransitionEnd);
+                navigateToAnchor(href);
+            };
+
+            modalOverlay.addEventListener('transitionend', onTransitionEnd);
+
+            // Fallback in case transitionend doesn't fire
+            setTimeout(() => {
+                if (handled) return;
+                handled = true;
+                modalOverlay.removeEventListener('transitionend', onTransitionEnd);
+                navigateToAnchor(href);
+            }, 350);
+        }
+        // otherwise let the anchor behave normally
+    });
+
+    // Helper: programmatic smooth scroll to an in-page anchor accounting for header height
+    function navigateToAnchor(hash) {
+        const targetElement = document.querySelector(hash);
+        if (!targetElement) {
+            // fallback: set location hash
+            location.hash = hash;
+            return;
+        }
+        const headerHeight = header ? header.offsetHeight : 0;
+        const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - headerHeight;
+        window.scrollTo({ top: targetPosition, behavior: 'smooth' });
     }
 
     // ==========================================
