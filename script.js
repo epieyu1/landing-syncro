@@ -195,7 +195,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                 <br>Revisa tu bandeja de entrada (y la carpeta de spam si no lo ves).
                         </p>
                         <p style="color: #6b7280; margin-bottom: 1rem;">Explora Syncro Motos y descubre cómo podemos ayudarte a optimizar tu taller.</p>
-                        <a href="#pricing" class="btn btn-primary">Ver Planes</a>
+                        <a href="#pricing" class="btn btn-primary success-cta" role="button">Ver Planes</a>
                     </div>
                 `;
                 lucide.createIcons();
@@ -208,7 +208,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         <h3 style="color: #111827; font-size: 1.25rem; margin-bottom: 0.5rem;">¡Registro exitoso!</h3>
                         <p style="color: #6b7280; margin-bottom: 1rem;">Hemos enviado tus credenciales de acceso a <strong>${formData.email}</strong>. Revisa tu bandeja de entrada (y spam).</p>
                         <p style="color: #6b7280; margin-bottom: 1rem;">Explora Syncro Motos y descubre las herramientas que harán más eficiente tu taller.</p>
-                        <a href="#pricing" class="btn btn-primary">Ver Planes</a>
+                        <a href="#pricing" class="btn btn-primary success-cta" role="button">Ver Planes</a>
                     </div>
                 `;
                 lucide.createIcons();

@@ -211,6 +211,36 @@ img {
     box-shadow: var(--shadow-lg), 0 0 20px rgba(255, 102, 0, 0.2);
 }
 
+/* Success CTA (used in success message after form submit) */
+.success-cta {
+    background: linear-gradient(90deg, #10b981 0%, #059669 100%);
+    color: white;
+    padding: 0.75rem 1.25rem;
+    font-weight: 800;
+    border-radius: 9999px;
+    box-shadow: 0 8px 24px rgba(5,150,105,0.18);
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal), opacity var(--transition-fast);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.success-cta:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(5,150,105,0.22);
+}
+
+/* Make the success CTA full width on small screens for better tap targets */
+@media (max-width: 768px) {
+    .success-cta {
+        display: block;
+        width: 100%;
+        justify-content: center;
+        padding: 0.9rem 1rem;
+        font-size: 1rem;
+    }
+}
+
 .btn-secondary {
     background: white;
     color: var(--slate-700);
