@@ -189,12 +189,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 formContainer.innerHTML = `
                     <div style="text-align: center; padding: 2rem;">
                         <i data-lucide="check-circle" style="width: 64px; height: 64px; color: #10b981; margin-bottom: 1rem;"></i>
-                        <h3 style="color: #111827; font-size: 1.5rem; margin-bottom: 0.5rem;">¡Bienvenido a Syncro Motos!</h3>
-                        <p style="color: #6b7280; margin-bottom: 1.5rem;">
+                        <h3 style="color: #111827; font-size: 1.5rem; margin-bottom: 0.5rem;">¡Registro exitoso!</h3>
+                        <p style="color: #6b7280; margin-bottom: 1rem;">
                             Hemos enviado tus credenciales de acceso a <strong>${formData.email}</strong>.
-                            <br>Revisa tu bandeja de entrada (y spam por si acaso).
+                                <br>Revisa tu bandeja de entrada (y la carpeta de spam si no lo ves).
                         </p>
-                        <a href="#download" class="btn btn-primary">Descargar App</a>
+                        <p style="color: #6b7280; margin-bottom: 1rem;">Explora Syncro Motos y descubre cómo podemos ayudarte a optimizar tu taller.</p>
+                        <a href="#pricing" class="btn btn-primary">Ver Planes</a>
                     </div>
                 `;
                 lucide.createIcons();
@@ -205,8 +206,9 @@ document.addEventListener('DOMContentLoaded', function () {
                     <div style="text-align: center; padding: 1.5rem;">
                         <i data-lucide="check-circle" style="width: 56px; height: 56px; color: #10b981; margin-bottom: 0.75rem;"></i>
                         <h3 style="color: #111827; font-size: 1.25rem; margin-bottom: 0.5rem;">¡Registro exitoso!</h3>
-                        <p style="color: #6b7280; margin-bottom: 1rem;">Te enviamos la información a <strong>${formData.email}</strong>.</p>
-                        <a href="#download" class="btn btn-primary">Descargar App</a>
+                        <p style="color: #6b7280; margin-bottom: 1rem;">Hemos enviado tus credenciales de acceso a <strong>${formData.email}</strong>. Revisa tu bandeja de entrada (y spam).</p>
+                        <p style="color: #6b7280; margin-bottom: 1rem;">Explora Syncro Motos y descubre las herramientas que harán más eficiente tu taller.</p>
+                        <a href="#pricing" class="btn btn-primary">Ver Planes</a>
                     </div>
                 `;
                 lucide.createIcons();
