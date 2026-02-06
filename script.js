@@ -113,86 +113,79 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // ==========================================
-    // CONTACT FORM HANDLER (TRIAL REGISTRATION)
+    // CONTACT FORM HANDLER (TRIAL REGISTRATION) - unified for desktop and mobile modal
     // ==========================================
     const demoForm = document.getElementById('demo-form');
+    const demoFormMobile = document.getElementById('demo-form-mobile');
+    const modalOverlay = document.getElementById('modal-overlay');
+    const modalClose = document.getElementById('modal-close');
+    const trialCta = document.getElementById('trial-cta');
     // TODO: Reemplazar con URL real de tu función o configurar rewrite
     const FUNCTION_URL = "https://us-central1-alua-2ecc9.cloudfunctions.net/createTrialAccount";
     const RECAPTCHA_SITE_KEY = "6Lf42l8sAAAAAHuYaukYy1Bn27uDMuIzAf3JKBQu";
 
-    if (demoForm) {
-        demoForm.addEventListener('submit', async function (e) {
-            e.preventDefault();
+    // Shared submission logic for both forms
+    async function submitTrial(form) {
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalText = submitBtn ? submitBtn.innerHTML : '';
 
-            const submitBtn = demoForm.querySelector('button[type="submit"]');
-            const originalText = submitBtn.innerHTML;
+        // Build formData using form elements (names kept consistent)
+        const elems = form.elements;
+        const formData = {
+            companyName: elems['workshop'] ? elems['workshop'].value : 'No especificado',
+            name: elems['name'] ? elems['name'].value : '',
+            phone: elems['phone'] ? elems['phone'].value : '',
+            email: elems['email'] ? elems['email'].value : '',
+            city: elems['city'] ? elems['city'].value : 'No especificada'
+        };
 
-            // Get form data
-            const formData = {
-                companyName: demoForm.workshop.value, // Mapped to companyName
-                name: demoForm.name.value,            // Contact Name (keep for reference or future use)
-                phone: demoForm.phone.value,
-                email: demoForm.email.value,
-                city: demoForm.city.value || 'No especificada'
-            };
-
-            // Show loading state
+        if (submitBtn) {
             submitBtn.innerHTML = '<i data-lucide="loader-2" class="animate-spin"></i> Creando cuenta...';
             submitBtn.disabled = true;
             lucide.createIcons();
+        }
 
-            try {
-                // 1. Execute reCAPTCHA (Safely waiting for Enterprise library to load)
-                const token = await new Promise((resolve, reject) => {
-                    // Wait for reCAPTCHA to load (max 5 seconds)
-                    let attempts = 0;
-                    const checkRecaptcha = () => {
-                        if (typeof grecaptcha !== 'undefined' && grecaptcha.enterprise) {
-                            grecaptcha.enterprise.ready(async () => {
-                                try {
-                                    const res = await grecaptcha.enterprise.execute(RECAPTCHA_SITE_KEY, { action: 'submit' });
-                                    resolve(res);
-                                } catch (err) {
-                                    reject(new Error(`reCAPTCHA execution failed: ${err.message}`));
-                                }
-                            });
-                        } else if (attempts < 50) {
-                            attempts++;
-                            setTimeout(checkRecaptcha, 100);
-                        } else {
-                            reject(new Error('reCAPTCHA Enterprise library no pudo cargarse. Verifique AdBlockers o la conexión.'));
-                        }
-                    };
-                    checkRecaptcha();
-                });
-
-                // 2. Prepare Payload
-                const payload = {
-                    ...formData,
-                    recaptchaToken: token
+        try {
+            // reCAPTCHA execution (same logic as before)
+            const token = await new Promise((resolve, reject) => {
+                let attempts = 0;
+                const checkRecaptcha = () => {
+                    if (typeof grecaptcha !== 'undefined' && grecaptcha.enterprise) {
+                        grecaptcha.enterprise.ready(async () => {
+                            try {
+                                const res = await grecaptcha.enterprise.execute(RECAPTCHA_SITE_KEY, { action: 'submit' });
+                                resolve(res);
+                            } catch (err) {
+                                reject(new Error(`reCAPTCHA execution failed: ${err.message}`));
+                            }
+                        });
+                    } else if (attempts < 50) {
+                        attempts++;
+                        setTimeout(checkRecaptcha, 100);
+                    } else {
+                        reject(new Error('reCAPTCHA Enterprise library no pudo cargarse. Verifique AdBlockers o la conexión.'));
+                    }
                 };
+                checkRecaptcha();
+            });
 
-                // 3. Call Cloud Function
-                const response = await fetch(FUNCTION_URL, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ data: payload }) // Callable format expects { data: ... }
-                });
+            const payload = { ...formData, recaptchaToken: token };
 
-                const result = await response.json();
+            const response = await fetch(FUNCTION_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ data: payload })
+            });
 
-                if (!response.ok || (result.error)) {
-                    throw new Error(result.error ? result.error.message : 'Error en el servidor');
-                }
+            const result = await response.json();
 
-                // Success
-                submitBtn.innerHTML = '<i data-lucide="check"></i> ¡Cuenta Creada!';
-                submitBtn.style.background = 'linear-gradient(135deg, #10b981 0%, #059669 100%)';
-                lucide.createIcons();
+            if (!response.ok || (result && result.error)) {
+                throw new Error(result && result.error ? result.error.message : 'Error en el servidor');
+            }
 
-                // Show Success Modal or Message
-                // For MVP: Simple Alert + Redirect or UI change
-                const formContainer = demoForm.parentElement;
+            // Success handling: for desktop form, replace form area; for mobile form, replace modal content
+            if (form.id === 'demo-form') {
+                const formContainer = form.parentElement;
                 formContainer.innerHTML = `
                     <div style="text-align: center; padding: 2rem;">
                         <i data-lucide="check-circle" style="width: 64px; height: 64px; color: #10b981; margin-bottom: 1rem;"></i>
@@ -205,15 +198,28 @@ document.addEventListener('DOMContentLoaded', function () {
                     </div>
                 `;
                 lucide.createIcons();
+            } else {
+                // mobile
+                const modalContent = form.parentElement;
+                modalContent.innerHTML = `
+                    <div style="text-align: center; padding: 1.5rem;">
+                        <i data-lucide="check-circle" style="width: 56px; height: 56px; color: #10b981; margin-bottom: 0.75rem;"></i>
+                        <h3 style="color: #111827; font-size: 1.25rem; margin-bottom: 0.5rem;">¡Registro exitoso!</h3>
+                        <p style="color: #6b7280; margin-bottom: 1rem;">Te enviamos la información a <strong>${formData.email}</strong>.</p>
+                        <a href="#download" class="btn btn-primary">Descargar App</a>
+                    </div>
+                `;
+                lucide.createIcons();
+            }
 
-            } catch (error) {
-                console.error('Error submitting form:', error);
+        } catch (error) {
+            console.error('Error submitting form:', error);
 
-                // Show error
-                const errorMsg = error.message.includes('already-exists')
-                    ? 'Este número ya está registrado.'
-                    : 'Error al crear cuenta. Intenta de nuevo.';
+            const errorMsg = error.message && error.message.includes('already-exists')
+                ? 'Este número ya está registrado.'
+                : 'Error al crear cuenta. Intenta de nuevo.';
 
+            if (submitBtn) {
                 submitBtn.innerHTML = `<i data-lucide="alert-circle"></i> ${errorMsg}`;
                 submitBtn.style.background = 'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)';
                 lucide.createIcons();
@@ -224,6 +230,63 @@ document.addEventListener('DOMContentLoaded', function () {
                     submitBtn.disabled = false;
                     lucide.createIcons();
                 }, 4000);
+            }
+        }
+    }
+
+    // Attach submit listeners
+    if (demoForm) {
+        demoForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            submitTrial(demoForm);
+        });
+    }
+
+    if (demoFormMobile) {
+        demoFormMobile.addEventListener('submit', function (e) {
+            e.preventDefault();
+            submitTrial(demoFormMobile);
+        });
+    }
+
+    // Modal open/close behavior for mobile CTA
+    if (trialCta && modalOverlay) {
+        trialCta.addEventListener('click', function (e) {
+            // Only intercept on small screens; on desktop keep default anchor behavior
+            if (window.innerWidth <= 768) {
+                e.preventDefault();
+                modalOverlay.classList.add('open');
+                modalOverlay.setAttribute('aria-hidden', 'false');
+                document.body.style.overflow = 'hidden';
+                // focus first input in mobile form
+                const first = demoFormMobile && demoFormMobile.querySelector('input[name="name"]');
+                if (first) first.focus();
+                lucide.createIcons();
+            }
+        });
+    }
+
+    if (modalClose && modalOverlay) {
+        modalClose.addEventListener('click', function () {
+            modalOverlay.classList.remove('open');
+            modalOverlay.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        });
+
+        modalOverlay.addEventListener('click', function (e) {
+            if (e.target === modalOverlay) {
+                modalOverlay.classList.remove('open');
+                modalOverlay.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Close on Escape
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && modalOverlay.classList.contains('open')) {
+                modalOverlay.classList.remove('open');
+                modalOverlay.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
             }
         });
     }

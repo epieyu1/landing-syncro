@@ -1258,7 +1258,8 @@ section {
     z-index: 999;
     width: 56px;
     height: 56px;
-    display: flex;
+    /* Hide by default on desktop; show only on mobile via media query below */
+    display: none;
     align-items: center;
     justify-content: center;
     background: #25D366;
@@ -1276,6 +1277,105 @@ section {
 .whatsapp-float i {
     width: 28px;
     height: 28px;
+}
+
+/* MOBILE-SPECIFIC: show whatsapp floating button and trial sticky bar only on small screens */
+@media (max-width: 768px) {
+    .whatsapp-float {
+        display: flex;
+        /* push above the sticky trial bar when present */
+        bottom: 84px;
+    }
+
+    /* Sticky trial bar (mobile only) */
+    .trial-sticky {
+        display: flex;
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1001;
+        background: linear-gradient(90deg, rgba(255,102,0,1), rgba(255,157,0,1));
+        color: white;
+        padding: 0.5rem 1rem;
+        gap: 0.75rem;
+        align-items: center;
+        justify-content: space-between;
+        box-shadow: 0 -6px 24px rgba(0,0,0,0.12);
+    }
+
+    .trial-text {
+        font-weight: 700;
+        font-size: 0.95rem;
+    }
+
+    .trial-cta {
+        height: 40px;
+        padding: 0 1rem;
+        border-radius: 9999px;
+        font-size: 0.95rem;
+        background: white;
+        color: var(--brand-accent);
+        box-shadow: none;
+        border: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* Ensure the sticky bar is not displayed on desktop */
+@media (min-width: 769px) {
+    .trial-sticky { display: none !important; }
+}
+
+/* ==========================================
+   MOBILE MODAL FORM STYLES
+   ========================================== */
+.modal-overlay {
+    display: none; /* shown via .open class */
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 1100;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.modal-overlay.open {
+    display: flex;
+}
+
+.modal {
+    width: 100%;
+    max-width: 420px;
+    background: white;
+    border-radius: var(--radius-md);
+    padding: 1.25rem;
+    box-shadow: var(--shadow-xl);
+    position: relative;
+}
+
+.modal h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.125rem;
+}
+
+.modal-close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+/* Ensure modal styles only affect small screens visually (but can be opened by JS) */
+@media (min-width: 769px) {
+    .modal-overlay { display: none !important; }
 }
 
 /* ==========================================

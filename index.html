@@ -434,32 +434,26 @@
                     </div>
                 </div>
 
+                <!-- Simplified desktop form: only Name, WhatsApp (phone) and Email visible.
+                     Hidden inputs keep compatibility with backend (workshop/companyName, city). -->
                 <form class="contact-form" id="demo-form">
+                    <!-- Hidden fields preserved for backend compatibility -->
+                    <input type="hidden" id="workshop" name="workshop" value="No especificado">
+                    <input type="hidden" id="city" name="city" value="No especificada">
+
                     <div class="form-group">
-                        <label for="workshop">Nombre del Taller *</label>
-                        <input type="text" id="workshop" name="workshop" required
-                            placeholder="Ej: Moto Servicio Express">
+                        <label for="name">Nombre *</label>
+                        <input type="text" id="name" name="name" required placeholder="Tu nombre">
                     </div>
 
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="name">Nombre Contacto *</label>
-                            <input type="text" id="name" name="name" required placeholder="Tu nombre">
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">WhatsApp *</label>
-                            <input type="tel" id="phone" name="phone" required placeholder="300 123 4567">
-                        </div>
+                    <div class="form-group">
+                        <label for="phone">WhatsApp *</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="300 123 4567">
                     </div>
 
                     <div class="form-group">
                         <label for="email">Email *</label>
                         <input type="email" id="email" name="email" required placeholder="correo@ejemplo.com">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="city">Ciudad</label>
-                        <input type="text" id="city" name="city" placeholder="Ej: Bogotá">
                     </div>
 
                     <button type="submit" class="btn btn-primary btn-lg btn-block">
@@ -471,6 +465,38 @@
                         Tus datos están protegidos. No compartimos tu información.
                     </p>
                 </form>
+
+                <!-- Mobile modal form (hidden by default). Triggered by the mobile CTA (trial-cta). -->
+                <div class="modal-overlay" id="modal-overlay" aria-hidden="true">
+                    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+                        <button class="modal-close" id="modal-close" aria-label="Cerrar formulario">&times;</button>
+                        <h3 id="modal-title">Iniciar Prueba Gratis — 14 días</h3>
+                        <form class="contact-form" id="demo-form-mobile">
+                            <!-- Hidden fields preserved for backend compatibility -->
+                            <input type="hidden" id="workshop_mobile" name="workshop" value="No especificado">
+                            <input type="hidden" id="city_mobile" name="city" value="No especificada">
+
+                            <div class="form-group">
+                                <label for="name_mobile">Nombre *</label>
+                                <input type="text" id="name_mobile" name="name" required placeholder="Tu nombre">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone_mobile">WhatsApp *</label>
+                                <input type="tel" id="phone_mobile" name="phone" required placeholder="300 123 4567">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email_mobile">Email *</label>
+                                <input type="email" id="email_mobile" name="email" required placeholder="correo@ejemplo.com">
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-lg btn-block">
+                                <i data-lucide="zap"></i> Enviar
+                            </button>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -526,6 +552,23 @@
             </div>
         </div>
     </footer>
+
+    <!-- Mobile floating elements (mobile-only via CSS) -->
+    <!-- WhatsApp floating button (mobile only) -->
+    <a href="https://wa.link/4pnu2z"
+       class="whatsapp-float"
+       id="whatsapp-float"
+       target="_blank"
+       rel="noopener noreferrer"
+       aria-label="Contactar por WhatsApp">
+        <i data-lucide="message-circle"></i>
+    </a>
+
+    <!-- Mobile trial sticky bar (visible only on small screens) -->
+    <div class="trial-sticky" id="trial-sticky" role="region" aria-label="Prueba gratis 14 días">
+        <div class="trial-text">Prueba Gratis — 14 días sin compromiso</div>
+        <a href="#contact" class="btn btn-primary trial-cta" id="trial-cta">Iniciar Prueba</a>
+    </div>
 
     <!-- Scripts -->
     <script src="script.js"></script>
