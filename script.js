@@ -265,7 +265,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 // focus first input in mobile form
                 const first = demoFormMobile && demoFormMobile.querySelector('input[name="name"]');
                 if (first) first.focus();
-                lucide.createIcons();
+                // Removed redundant lucide.createIcons() to fix lag
             }
         });
     }

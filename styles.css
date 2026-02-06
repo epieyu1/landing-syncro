@@ -772,7 +772,7 @@ section {
 
 .pricing-card {
     position: relative;
-    padding: var(--space-2xl);
+    padding: var(--space-xl);
     background: var(--slate-50);
     border-radius: var(--radius-2xl);
     border: 2px solid var(--slate-200);
@@ -805,11 +805,11 @@ section {
 }
 
 .pricing-header {
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--space-sm);
 }
 
 .pricing-header h3 {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     margin-bottom: 0.25rem;
 }
 
@@ -819,7 +819,7 @@ section {
 }
 
 .pricing-price {
-    margin-bottom: var(--space-sm);
+    margin-bottom: 0;
 }
 
 .pricing-price .currency {
@@ -830,7 +830,7 @@ section {
 }
 
 .pricing-price .amount {
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 800;
     color: var(--slate-900);
     line-height: 1;
@@ -844,7 +844,7 @@ section {
 .pricing-annual {
     font-size: 0.875rem;
     color: var(--slate-500);
-    margin-bottom: var(--space-xl);
+    margin-bottom: var(--space-md);
 }
 
 .pricing-annual .discount {
@@ -854,14 +854,14 @@ section {
 
 .pricing-features {
     list-style: none;
-    margin-bottom: var(--space-xl);
+    margin-bottom: var(--space-md);
 }
 
 .pricing-features li {
     display: flex;
     align-items: flex-start;
-    gap: var(--space-sm);
-    padding: var(--space-sm) 0;
+    gap: var(--space-xs);
+    padding: 2px 0;
     font-size: 0.875rem;
     color: var(--slate-700);
 }
