@@ -313,8 +313,10 @@ img {
    HEADER / NAVIGATION
    ========================================== */
 .header {
-    position: fixed;
-    top: 0;
+    position: absolute;
+    /* Changed from fixed */
+    top: 2rem;
+    /* Added spacing from top */
     left: 0;
     right: 0;
     z-index: 1000;
@@ -325,6 +327,7 @@ img {
 }
 
 .header.scrolled {
+    /* Scrolled state might not be needed if not fixed, but keeping styles just in case logic remains */
     background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(12px) saturate(180%);
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
@@ -336,6 +339,8 @@ img {
     align-items: center;
     justify-content: space-between;
     height: 72px;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 }
 
 /* Mobile Menu Fix: Invert order on mobile */
@@ -361,9 +366,18 @@ img {
 }
 
 .logo-img {
-    width: 36px;
-    height: 36px;
+    width: auto;
+    height: 60px;
+    /* Reduced from 90px */
     object-fit: contain;
+}
+
+/* Larger logo on tablets and desktop */
+@media (min-width: 768px) {
+    .logo-img {
+        height: 80px;
+        /* Reduced from 110px */
+    }
 }
 
 .nav-menu {
@@ -401,9 +415,13 @@ img {
 /* ==========================================
    HERO SECTION
    ========================================== */
+/* ==========================================
+   HERO SECTION
+   ========================================== */
 .hero {
     position: relative;
-    padding: 8rem 0 4rem;
+    padding: 14rem 0 4rem;
+    /* Increased top padding from 8rem */
     background: var(--slate-50);
     overflow: hidden;
 }

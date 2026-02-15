@@ -1,0 +1,437 @@
+INFO:     Will watch for changes in these directories: ['/Users/alexanderrestrepoepieyu/Desktop/landing-syncro/syncro-leads-manager/backend']
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [65087] using StatReload
+/Users/alexanderrestrepoepieyu/Desktop/landing-syncro/syncro-leads-manager/backend/venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+/Users/alexanderrestrepoepieyu/Desktop/landing-syncro/syncro-leads-manager/backend/venv/lib/python3.9/site-packages/pydantic/_internal/_config.py:383: UserWarning: Valid config keys have changed in V2:
+* 'orm_mode' has been renamed to 'from_attributes'
+  warnings.warn(message, UserWarning)
+INFO:     Started server process [65089]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+🚀 Iniciando servicio de WhatsApp...
+🔧 Driver instalado en: /Users/alexanderrestrepoepieyu/.wdm/drivers/chromedriver/mac64/144.0.7559.133/chromedriver-mac-arm64/chromedriver
+✅ Navegador abierto. Esperando escaneo de QR...
+INFO:     127.0.0.1:61657 - "POST /api/whatsapp/connect HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61994 - "OPTIONS /api/leads HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61994 - "GET /api/leads HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61995 - "DELETE /api/leads HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61994 - "GET /api/leads HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61995 - "GET /api/leads HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61994 - "OPTIONS /api/leads/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61995 - "OPTIONS /api/leads HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61994 - "GET /api/leads HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61994 - "OPTIONS /api/leads HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61996 - "DELETE /api/leads/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61995 - "GET /api/leads HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61997 - "DELETE /api/leads HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61994 - "DELETE /api/leads HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62313 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62314 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62423 - "OPTIONS /api/search HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62423 - "POST /api/search HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62467 - "GET /api/templates/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62468 - "GET /api/templates/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62469 - "GET /api/templates/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62470 - "GET /api/templates/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62467 - "POST /api/whatsapp/connect HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62536 - "POST /api/whatsapp/check-replies HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62559 - "POST /api/whatsapp/check-replies HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62582 - "POST /api/whatsapp/check-replies HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62694 - "GET /api/templates/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62852 - "GET /api/templates/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62907 - "POST /api/whatsapp/check-replies HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62907 - "POST /api/whatsapp/check-replies HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62949 - "GET /api/templates/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62951 - "GET /api/templates/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62948 - "GET /api/templates/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62907 - "GET /api/templates/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62949 - "POST /api/whatsapp/connect HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62994 - "POST /api/whatsapp/check-replies HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62994 - "POST /api/whatsapp/check-replies HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63037 - "POST /api/whatsapp/check-replies HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63062 - "POST /api/whatsapp/check-replies HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63085 - "POST /api/whatsapp/check-replies HTTP/1.1" 200 OK
+WARNING:  StatReload detected changes in 'app/api/templates.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [65089]
+/Users/alexanderrestrepoepieyu/Desktop/landing-syncro/syncro-leads-manager/backend/venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+/Users/alexanderrestrepoepieyu/Desktop/landing-syncro/syncro-leads-manager/backend/venv/lib/python3.9/site-packages/pydantic/_internal/_config.py:383: UserWarning: Valid config keys have changed in V2:
+* 'orm_mode' has been renamed to 'from_attributes'
+  warnings.warn(message, UserWarning)
+INFO:     Started server process [66759]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:63330 - "POST /api/whatsapp/check-replies HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63330 - "GET /api/templates/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63330 - "POST /api/whatsapp/check-replies HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63330 - "POST /api/whatsapp/check-replies HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63330 - "POST /api/whatsapp/check-replies HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63330 - "POST /api/whatsapp/check-replies HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63330 - "POST /api/whatsapp/check-replies HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63330 - "POST /api/whatsapp/check-replies HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63330 - "POST /api/whatsapp/check-replies HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63520 - "POST /api/whatsapp/check-replies HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63520 - "POST /api/whatsapp/check-replies HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63567 - "POST /api/whatsapp/check-replies HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63600 - "POST /api/whatsapp/check-replies HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64036 - "POST /api/whatsapp/check-replies HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64036 - "GET /api/templates/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64039 - "GET /api/templates/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64036 - "GET /api/whatsapp/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64036 - "GET /api/whatsapp/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64036 - "GET /api/whatsapp/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64036 - "GET /api/templates/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64091 - "GET /api/templates/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64093 - "GET /api/templates/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64092 - "GET /api/templates/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64036 - "GET /api/whatsapp/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64036 - "GET /api/whatsapp/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64036 - "GET /api/whatsapp/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64036 - "GET /api/whatsapp/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64036 - "GET /api/whatsapp/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64036 - "GET /api/whatsapp/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64036 - "GET /api/whatsapp/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64036 - "GET /api/whatsapp/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64036 - "GET /api/whatsapp/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64036 - "GET /api/whatsapp/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64036 - "GET /api/whatsapp/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64036 - "GET /api/whatsapp/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64036 - "GET /api/whatsapp/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64036 - "GET /api/whatsapp/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64036 - "GET /api/whatsapp/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64036 - "GET /api/whatsapp/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64036 - "GET /api/whatsapp/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64036 - "GET /api/whatsapp/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64350 - "GET /api/whatsapp/status HTTP/1.1" 200 OK
+WARNING:  StatReload detected changes in 'seed_templates.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [66759]
+/Users/alexanderrestrepoepieyu/Desktop/landing-syncro/syncro-leads-manager/backend/venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+/Users/alexanderrestrepoepieyu/Desktop/landing-syncro/syncro-leads-manager/backend/venv/lib/python3.9/site-packages/pydantic/_internal/_config.py:383: UserWarning: Valid config keys have changed in V2:
+* 'orm_mode' has been renamed to 'from_attributes'
+  warnings.warn(message, UserWarning)
+INFO:     Started server process [67867]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:65407 - "GET /api/whatsapp/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65407 - "GET /api/whatsapp/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65407 - "GET /api/templates/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65434 - "GET /api/templates/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65433 - "GET /api/templates/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65432 - "GET /api/templates/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65407 - "GET /api/whatsapp/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65407 - "GET /api/whatsapp/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65407 - "GET /api/whatsapp/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65407 - "GET /api/whatsapp/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65407 - "GET /api/whatsapp/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65407 - "GET /api/whatsapp/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65407 - "OPTIONS /api/templates/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65407 - "PUT /api/templates/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65407 - "GET /api/templates/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65407 - "GET /api/whatsapp/status HTTP/1.1" 200 OK
+🚀 Iniciando servicio de WhatsApp...
+🔧 Driver instalado en: /Users/alexanderrestrepoepieyu/.wdm/drivers/chromedriver/mac64/144.0.7559.133/chromedriver-mac-arm64/chromedriver
+✅ Navegador abierto. Esperando escaneo de QR...
+INFO:     127.0.0.1:65407 - "POST /api/whatsapp/connect HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49212 - "GET /api/whatsapp/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49179 - "GET /api/whatsapp/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65407 - "GET /api/whatsapp/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49212 - "GET /api/whatsapp/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49179 - "GET /api/whatsapp/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49653 - "GET /api/whatsapp/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49653 - "GET /api/whatsapp/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49653 - "GET /api/whatsapp/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49653 - "GET /api/templates/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49653 - "GET /api/whatsapp/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49653 - "GET /api/whatsapp/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49653 - "GET /api/templates/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49653 - "GET /api/whatsapp/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49653 - "GET /api/whatsapp/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49653 - "OPTIONS /api/whatsapp/send-campaign HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49653 - "POST /api/whatsapp/send-campaign HTTP/1.1" 200 OK
+WARNING:  StatReload detected changes in 'app/services/maps_service.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [67867]
+/Users/alexanderrestrepoepieyu/Desktop/landing-syncro/syncro-leads-manager/backend/venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+/Users/alexanderrestrepoepieyu/Desktop/landing-syncro/syncro-leads-manager/backend/venv/lib/python3.9/site-packages/pydantic/_internal/_config.py:383: UserWarning: Valid config keys have changed in V2:
+* 'orm_mode' has been renamed to 'from_attributes'
+  warnings.warn(message, UserWarning)
+INFO:     Started server process [70343]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'app/api/endpoints.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [70343]
+/Users/alexanderrestrepoepieyu/Desktop/landing-syncro/syncro-leads-manager/backend/venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+/Users/alexanderrestrepoepieyu/Desktop/landing-syncro/syncro-leads-manager/backend/venv/lib/python3.9/site-packages/pydantic/_internal/_config.py:383: UserWarning: Valid config keys have changed in V2:
+* 'orm_mode' has been renamed to 'from_attributes'
+  warnings.warn(message, UserWarning)
+INFO:     Started server process [70385]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'app/api/endpoints.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [70385]
+/Users/alexanderrestrepoepieyu/Desktop/landing-syncro/syncro-leads-manager/backend/venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+/Users/alexanderrestrepoepieyu/Desktop/landing-syncro/syncro-leads-manager/backend/venv/lib/python3.9/site-packages/pydantic/_internal/_config.py:383: UserWarning: Valid config keys have changed in V2:
+* 'orm_mode' has been renamed to 'from_attributes'
+  warnings.warn(message, UserWarning)
+INFO:     Started server process [70954]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'app/api/endpoints.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [70954]
+/Users/alexanderrestrepoepieyu/Desktop/landing-syncro/syncro-leads-manager/backend/venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+/Users/alexanderrestrepoepieyu/Desktop/landing-syncro/syncro-leads-manager/backend/venv/lib/python3.9/site-packages/pydantic/_internal/_config.py:383: UserWarning: Valid config keys have changed in V2:
+* 'orm_mode' has been renamed to 'from_attributes'
+  warnings.warn(message, UserWarning)
+INFO:     Started server process [70975]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:54103 - "GET /api/templates/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54104 - "GET /api/templates/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54106 - "GET /api/templates/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54105 - "GET /api/templates/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54103 - "GET /api/whatsapp/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54103 - "GET /api/whatsapp/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54103 - "GET /api/whatsapp/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54103 - "GET /api/whatsapp/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54103 - "GET /api/whatsapp/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54103 - "GET /api/whatsapp/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54103 - "GET /api/whatsapp/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54103 - "GET /api/whatsapp/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54103 - "GET /api/whatsapp/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54103 - "GET /api/whatsapp/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54103 - "GET /api/whatsapp/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54103 - "GET /api/whatsapp/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54103 - "GET /api/whatsapp/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54103 - "GET /api/whatsapp/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54103 - "GET /api/whatsapp/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54103 - "GET /api/whatsapp/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54103 - "GET /api/whatsapp/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54103 - "GET /api/whatsapp/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54103 - "GET /api/whatsapp/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54103 - "GET /api/whatsapp/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54103 - "GET /api/whatsapp/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54103 - "GET /api/whatsapp/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54103 - "GET /api/whatsapp/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54103 - "GET /api/whatsapp/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54103 - "GET /api/whatsapp/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54103 - "GET /api/whatsapp/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54103 - "GET /api/whatsapp/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54103 - "GET /api/whatsapp/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54787 - "GET /api/leads HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54786 - "GET /api/leads HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54821 - "OPTIONS /api/leads HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54821 - "DELETE /api/leads HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55107 - "OPTIONS /api/search HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55107 - "POST /api/search HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55146 - "GET /api/leads HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55147 - "GET /api/leads HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55318 - "DELETE /api/leads HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55318 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55327 - "GET /api/stats HTTP/1.1" 200 OK
+WARNING:  StatReload detected changes in 'app/api/whatsapp.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [70975]
+/Users/alexanderrestrepoepieyu/Desktop/landing-syncro/syncro-leads-manager/backend/venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+/Users/alexanderrestrepoepieyu/Desktop/landing-syncro/syncro-leads-manager/backend/venv/lib/python3.9/site-packages/pydantic/_internal/_config.py:383: UserWarning: Valid config keys have changed in V2:
+* 'orm_mode' has been renamed to 'from_attributes'
+  warnings.warn(message, UserWarning)
+INFO:     Started server process [81271]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'app/services/whatsapp_service.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [81271]
+/Users/alexanderrestrepoepieyu/Desktop/landing-syncro/syncro-leads-manager/backend/venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+/Users/alexanderrestrepoepieyu/Desktop/landing-syncro/syncro-leads-manager/backend/venv/lib/python3.9/site-packages/pydantic/_internal/_config.py:383: UserWarning: Valid config keys have changed in V2:
+* 'orm_mode' has been renamed to 'from_attributes'
+  warnings.warn(message, UserWarning)
+INFO:     Started server process [81312]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'app/api/whatsapp.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [81312]
+/Users/alexanderrestrepoepieyu/Desktop/landing-syncro/syncro-leads-manager/backend/venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+/Users/alexanderrestrepoepieyu/Desktop/landing-syncro/syncro-leads-manager/backend/venv/lib/python3.9/site-packages/pydantic/_internal/_config.py:383: UserWarning: Valid config keys have changed in V2:
+* 'orm_mode' has been renamed to 'from_attributes'
+  warnings.warn(message, UserWarning)
+INFO:     Started server process [81339]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:58737 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58736 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58737 - "GET /api/leads HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58736 - "GET /api/leads HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58736 - "GET /api/templates/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58737 - "GET /api/templates/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58768 - "GET /api/templates/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58769 - "GET /api/templates/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58736 - "GET /api/leads HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58737 - "GET /api/leads HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58769 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58768 - "GET /api/stats HTTP/1.1" 200 OK
+WARNING:  StatReload detected changes in 'app/api/whatsapp.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [81339]
+/Users/alexanderrestrepoepieyu/Desktop/landing-syncro/syncro-leads-manager/backend/venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+/Users/alexanderrestrepoepieyu/Desktop/landing-syncro/syncro-leads-manager/backend/venv/lib/python3.9/site-packages/pydantic/_internal/_config.py:383: UserWarning: Valid config keys have changed in V2:
+* 'orm_mode' has been renamed to 'from_attributes'
+  warnings.warn(message, UserWarning)
+INFO:     Started server process [81892]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'app/api/whatsapp.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [81892]
+/Users/alexanderrestrepoepieyu/Desktop/landing-syncro/syncro-leads-manager/backend/venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+/Users/alexanderrestrepoepieyu/Desktop/landing-syncro/syncro-leads-manager/backend/venv/lib/python3.9/site-packages/pydantic/_internal/_config.py:383: UserWarning: Valid config keys have changed in V2:
+* 'orm_mode' has been renamed to 'from_attributes'
+  warnings.warn(message, UserWarning)
+INFO:     Started server process [81934]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'app/api/whatsapp.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [81934]
+/Users/alexanderrestrepoepieyu/Desktop/landing-syncro/syncro-leads-manager/backend/venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+/Users/alexanderrestrepoepieyu/Desktop/landing-syncro/syncro-leads-manager/backend/venv/lib/python3.9/site-packages/pydantic/_internal/_config.py:383: UserWarning: Valid config keys have changed in V2:
+* 'orm_mode' has been renamed to 'from_attributes'
+  warnings.warn(message, UserWarning)
+INFO:     Started server process [81956]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'app/api/whatsapp.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [81956]
+/Users/alexanderrestrepoepieyu/Desktop/landing-syncro/syncro-leads-manager/backend/venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+/Users/alexanderrestrepoepieyu/Desktop/landing-syncro/syncro-leads-manager/backend/venv/lib/python3.9/site-packages/pydantic/_internal/_config.py:383: UserWarning: Valid config keys have changed in V2:
+* 'orm_mode' has been renamed to 'from_attributes'
+  warnings.warn(message, UserWarning)
+INFO:     Started server process [84216]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'app/api/whatsapp.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [84216]
+/Users/alexanderrestrepoepieyu/Desktop/landing-syncro/syncro-leads-manager/backend/venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+/Users/alexanderrestrepoepieyu/Desktop/landing-syncro/syncro-leads-manager/backend/venv/lib/python3.9/site-packages/pydantic/_internal/_config.py:383: UserWarning: Valid config keys have changed in V2:
+* 'orm_mode' has been renamed to 'from_attributes'
+  warnings.warn(message, UserWarning)
+/Users/alexanderrestrepoepieyu/Desktop/landing-syncro/syncro-leads-manager/backend/venv/lib/python3.9/site-packages/google/auth/__init__.py:54: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/alexanderrestrepoepieyu/Desktop/landing-syncro/syncro-leads-manager/backend/venv/lib/python3.9/site-packages/google/oauth2/__init__.py:40: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/alexanderrestrepoepieyu/Desktop/landing-syncro/syncro-leads-manager/backend/venv/lib/python3.9/site-packages/google/api_core/_python_version_support.py:246: FutureWarning: You are using a non-supported Python version (3.9.6). Google will not post any further updates to google.api_core supporting this Python version. Please upgrade to the latest Python version, or at least Python 3.10, and then update google.api_core.
+  warnings.warn(message, FutureWarning)
+INFO:     Started server process [87087]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'app/api/endpoints.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [87087]
+/Users/alexanderrestrepoepieyu/Desktop/landing-syncro/syncro-leads-manager/backend/venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+/Users/alexanderrestrepoepieyu/Desktop/landing-syncro/syncro-leads-manager/backend/venv/lib/python3.9/site-packages/google/auth/__init__.py:54: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/alexanderrestrepoepieyu/Desktop/landing-syncro/syncro-leads-manager/backend/venv/lib/python3.9/site-packages/google/oauth2/__init__.py:40: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/alexanderrestrepoepieyu/Desktop/landing-syncro/syncro-leads-manager/backend/venv/lib/python3.9/site-packages/google/api_core/_python_version_support.py:246: FutureWarning: You are using a non-supported Python version (3.9.6). Google will not post any further updates to google.api_core supporting this Python version. Please upgrade to the latest Python version, or at least Python 3.10, and then update google.api_core.
+  warnings.warn(message, FutureWarning)
+/Users/alexanderrestrepoepieyu/Desktop/landing-syncro/syncro-leads-manager/backend/venv/lib/python3.9/site-packages/pydantic/_internal/_config.py:383: UserWarning: Valid config keys have changed in V2:
+* 'orm_mode' has been renamed to 'from_attributes'
+  warnings.warn(message, UserWarning)
+INFO:     Started server process [88364]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'app/api/endpoints.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [88364]
+/Users/alexanderrestrepoepieyu/Desktop/landing-syncro/syncro-leads-manager/backend/venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+/Users/alexanderrestrepoepieyu/Desktop/landing-syncro/syncro-leads-manager/backend/venv/lib/python3.9/site-packages/google/auth/__init__.py:54: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/alexanderrestrepoepieyu/Desktop/landing-syncro/syncro-leads-manager/backend/venv/lib/python3.9/site-packages/google/oauth2/__init__.py:40: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/alexanderrestrepoepieyu/Desktop/landing-syncro/syncro-leads-manager/backend/venv/lib/python3.9/site-packages/google/api_core/_python_version_support.py:246: FutureWarning: You are using a non-supported Python version (3.9.6). Google will not post any further updates to google.api_core supporting this Python version. Please upgrade to the latest Python version, or at least Python 3.10, and then update google.api_core.
+  warnings.warn(message, FutureWarning)
+/Users/alexanderrestrepoepieyu/Desktop/landing-syncro/syncro-leads-manager/backend/venv/lib/python3.9/site-packages/pydantic/_internal/_config.py:383: UserWarning: Valid config keys have changed in V2:
+* 'orm_mode' has been renamed to 'from_attributes'
+  warnings.warn(message, UserWarning)
+INFO:     Started server process [88397]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'app/api/whatsapp.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [88397]
+/Users/alexanderrestrepoepieyu/Desktop/landing-syncro/syncro-leads-manager/backend/venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+/Users/alexanderrestrepoepieyu/Desktop/landing-syncro/syncro-leads-manager/backend/venv/lib/python3.9/site-packages/google/auth/__init__.py:54: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/alexanderrestrepoepieyu/Desktop/landing-syncro/syncro-leads-manager/backend/venv/lib/python3.9/site-packages/google/oauth2/__init__.py:40: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/alexanderrestrepoepieyu/Desktop/landing-syncro/syncro-leads-manager/backend/venv/lib/python3.9/site-packages/google/api_core/_python_version_support.py:246: FutureWarning: You are using a non-supported Python version (3.9.6). Google will not post any further updates to google.api_core supporting this Python version. Please upgrade to the latest Python version, or at least Python 3.10, and then update google.api_core.
+  warnings.warn(message, FutureWarning)
+/Users/alexanderrestrepoepieyu/Desktop/landing-syncro/syncro-leads-manager/backend/venv/lib/python3.9/site-packages/pydantic/_internal/_config.py:383: UserWarning: Valid config keys have changed in V2:
+* 'orm_mode' has been renamed to 'from_attributes'
+  warnings.warn(message, UserWarning)
+INFO:     Started server process [88466]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [88466]
+INFO:     Stopping reloader process [65087]

@@ -1,0 +1,31 @@
+<svg width="800" height="450" viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <!-- Abeja escalada 1.9x para ocupar EXACTAMENTE 60% del espacio -->
+  <!-- Centro de escala ajustado para mantener proporciones verticalmente -->
+  <g transform="translate(400, 215) scale(1.9) translate(-400, -190)">
+    <g stroke="#2d3748" stroke-width="5.5" fill="none" stroke-linejoin="round" stroke-linecap="round">
+      <path d="M400,135 L390,120 M400,135 L410,120" />
+      <circle cx="400" cy="140" r="5" />
+      
+      <path d="M400,145 L388,175 L400,185 L412,175 Z" />
+      
+      <path d="M388,155 C340,145 280,130 260,140 C250,145 320,180 388,175" />
+      <path d="M412,155 C460,145 520,130 540,140 C550,145 480,180 412,175" />
+      
+      <path d="M390,178 C350,185 300,195 295,210 C290,225 360,220 395,195" />
+      <path d="M410,178 C450,185 500,195 505,210 C510,225 440,220 405,195" />
+      
+      <path d="M400,185 L380,215 C380,240 400,260 400,260 C400,260 420,240 420,215 Z" />
+    </g>
+
+    <defs>
+      <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#4a5568" stop-opacity="0.5" />
+        <stop offset="100%" stop-color="#4a5568" stop-opacity="0" />
+      </radialGradient>
+    </defs>
+    <circle cx="400" cy="225" r="25" fill="url(#glow)" />
+    <path d="M400,205 L390,220 L400,240 L410,220 Z" fill="#2d3748" />
+  </g>
+
+  <text x="400" y="415" font-family="Arial, sans-serif" font-size="42" fill="#1e293b" text-anchor="middle" letter-spacing="12">SYNCRO</text>
+</svg>
