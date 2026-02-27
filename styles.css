@@ -1250,10 +1250,33 @@ section {
 /* Bottom Bar */
 .footer-bottom {
     padding-top: var(--space-xl);
-    border-top: 1px solid var(--slate-800);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     text-align: center;
     font-size: 0.875rem;
     color: var(--slate-500);
+}
+
+.footer-legal-info {
+    margin-bottom: 2rem;
+    color: var(--slate-400);
+}
+
+.footer-legal-info p {
+    margin-bottom: 0.25rem;
+    color: var(--slate-400);
+}
+
+.footer-legal-info strong {
+    color: white;
+    font-family: var(--font-heading);
+}
+
+.footer-disclaimer {
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    color: var(--slate-500);
+    font-size: 0.75rem;
+    line-height: 1.5;
 }
 
 /* Responsive Overrides (Preserving User's Mobile Fixes) */
