@@ -122,9 +122,13 @@ document.addEventListener('DOMContentLoaded', function () {
     const modalOverlay = document.getElementById('modal-overlay');
     const modalClose = document.getElementById('modal-close');
     const trialCta = document.getElementById('trial-cta');
-    // TODO: Reemplazar con URL real de tu función o configurar rewrite
-    const FUNCTION_URL = "https://us-central1-alua-2ecc9.cloudfunctions.net/createTrialAccount";
-    const RECAPTCHA_SITE_KEY = "6Lf42l8sAAAAAHuYaukYy1Bn27uDMuIzAf3JKBQu";
+
+    // Supabase Configuration
+    const SUPABASE_URL = "https://vmlxfbqezgjivesxahfe.supabase.co";
+    const SUPABASE_ANON_KEY = "sb_publishable_XSLOhed3DZXxWo87HjQu3w_uvmpiDUO";
+    
+    // Initialize Supabase Client
+    const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
     // Shared submission logic for both forms
     async function submitTrial(form) {
@@ -134,94 +138,57 @@ document.addEventListener('DOMContentLoaded', function () {
         // Build formData using form elements (names kept consistent)
         const elems = form.elements;
         const formData = {
-            companyName: elems['workshop'] ? elems['workshop'].value : 'No especificado',
-            name: elems['name'] ? elems['name'].value : '',
-            phone: elems['phone'] ? elems['phone'].value : '',
-            email: elems['email'] ? elems['email'].value : '',
-            city: elems['city'] ? elems['city'].value : 'No especificada'
+            nombre: elems['name'] ? elems['name'].value : '',
+            cliente: elems['phone'] ? elems['phone'].value : '',
+            correo: elems['email'] ? elems['email'].value : ''
         };
 
         if (submitBtn) {
-            submitBtn.innerHTML = '<i data-lucide="loader-2" class="animate-spin"></i> Creando cuenta...';
+            submitBtn.innerHTML = '<i data-lucide="loader-2" class="animate-spin"></i> Enviando solicitud...';
             submitBtn.disabled = true;
             lucide.createIcons();
         }
 
         try {
-            // reCAPTCHA execution (same logic as before)
-            const token = await new Promise((resolve, reject) => {
-                let attempts = 0;
-                const checkRecaptcha = () => {
-                    if (typeof grecaptcha !== 'undefined' && grecaptcha.enterprise) {
-                        grecaptcha.enterprise.ready(async () => {
-                            try {
-                                const res = await grecaptcha.enterprise.execute(RECAPTCHA_SITE_KEY, { action: 'submit' });
-                                resolve(res);
-                            } catch (err) {
-                                reject(new Error(`reCAPTCHA execution failed: ${err.message}`));
-                            }
-                        });
-                    } else if (attempts < 50) {
-                        attempts++;
-                        setTimeout(checkRecaptcha, 100);
-                    } else {
-                        reject(new Error('reCAPTCHA Enterprise library no pudo cargarse. Verifique AdBlockers o la conexión.'));
-                    }
-                };
-                checkRecaptcha();
-            });
+            // Insert data into Supabase table 'TABLA DE USUARIOS DEMO'
+            const { error } = await supabaseClient
+                .from('TABLA DE USUARIOS DEMO')
+                .insert([formData]);
 
-            const payload = { ...formData, recaptchaToken: token };
+            if (error) throw error;
 
-            const response = await fetch(FUNCTION_URL, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ data: payload })
-            });
-
-            const result = await response.json();
-
-            if (!response.ok || (result && result.error)) {
-                throw new Error(result && result.error ? result.error.message : 'Error en el servidor');
-            }
-
-            // Success handling: for desktop form, replace form area; for mobile form, replace modal content
-            if (form.id === 'demo-form') {
-                const formContainer = form.parentElement;
-                formContainer.innerHTML = `
-                    <div style="text-align: center; padding: 2rem;">
-                        <i data-lucide="check-circle" style="width: 64px; height: 64px; color: #10b981; margin-bottom: 1rem;"></i>
-                        <h3 style="color: #111827; font-size: 1.5rem; margin-bottom: 0.5rem;">¡Registro exitoso!</h3>
-                        <p style="color: #6b7280; margin-bottom: 1rem;">
-                            Hemos enviado tus credenciales de acceso a <strong>${formData.email}</strong>.
-                                <br>Revisa tu bandeja de entrada (y la carpeta de spam si no lo ves).
-                        </p>
-                        <p style="color: #6b7280; margin-bottom: 1rem;">Explora Syncro Motos y descubre cómo podemos ayudarte a optimizar tu taller.</p>
+            // Success handling: unified premium look
+            const successHTML = `
+                <div class="success-message-container">
+                    <div class="success-icon-wrapper">
+                        <i data-lucide="check-circle"></i>
+                    </div>
+                    <h3 class="success-title">¡Solicitud enviada!</h3>
+                    <p class="success-text">
+                        Gracias por tu interés en <strong>Syncro Motos</strong>. 
+                        <br>Un asesor se pondrá en contacto contigo a través de WhatsApp o correo electrónico para coordinar tu prueba gratuita de 30 días.
+                    </p>
+                    <div class="success-actions">
                         <a href="#pricing" class="btn btn-primary success-cta" role="button">Ver Planes</a>
                     </div>
-                `;
-                lucide.createIcons();
+                </div>
+            `;
+
+            if (form.id === 'demo-form') {
+                form.parentElement.innerHTML = successHTML;
             } else {
                 // mobile
-                const modalContent = form.parentElement;
-                modalContent.innerHTML = `
-                    <div style="text-align: center; padding: 1.5rem;">
-                        <i data-lucide="check-circle" style="width: 56px; height: 56px; color: #10b981; margin-bottom: 0.75rem;"></i>
-                        <h3 style="color: #111827; font-size: 1.25rem; margin-bottom: 0.5rem;">¡Registro exitoso!</h3>
-                        <p style="color: #6b7280; margin-bottom: 1rem;">Hemos enviado tus credenciales de acceso a <strong>${formData.email}</strong>. Revisa tu bandeja de entrada (y spam).</p>
-                        <p style="color: #6b7280; margin-bottom: 1rem;">Explora Syncro Motos y descubre las herramientas que harán más eficiente tu taller.</p>
-                        <a href="#pricing" class="btn btn-primary success-cta" role="button">Ver Planes</a>
-                    </div>
-                `;
-                lucide.createIcons();
+                form.parentElement.innerHTML = successHTML;
             }
+            lucide.createIcons();
 
         } catch (error) {
             console.error('Error submitting form:', error);
 
-            const errorMsg = error.message && error.message.includes('already-exists')
-                ? 'Este número ya está registrado.'
-                : 'Error al crear cuenta. Intenta de nuevo.';
+            let errorMsg = 'Error al enviar la solicitud. Intenta de nuevo.';
+            if (error.message && error.message.includes('unique')) {
+                errorMsg = 'Este WhatsApp o correo ya está registrado.';
+            }
 
             if (submitBtn) {
                 submitBtn.innerHTML = `<i data-lucide="alert-circle"></i> ${errorMsg}`;
@@ -379,12 +346,15 @@ document.addEventListener('DOMContentLoaded', function () {
                     const stats = entry.target.querySelectorAll('.stat-number');
 
                     stats.forEach(stat => {
-                        const text = stat.textContent;
-                        if (text.includes('K')) {
+                        const text = stat.textContent.trim();
+                        // Only animate if it's not an icon container
+                        if (stat.querySelector('i')) return;
+
+                        if (text.includes('%')) {
+                            animateCounter(stat, 99, '%');
+                        } else if (text.includes('K')) {
                             animateCounter(stat, 50, 'K+');
-                        } else if (text.includes('%')) {
-                            animateCounter(stat, 99.9, '%');
-                        } else {
+                        } else if (text !== '') {
                             animateCounter(stat, 500, '+');
                         }
                     });
@@ -398,7 +368,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // ==========================================
-    // ADD CSS FOR SPIN ANIMATION
+    // ADD CSS FOR SUCCESS MESSAGE AND SPINNER
     // ==========================================
     const style = document.createElement('style');
     style.textContent = `
@@ -408,6 +378,80 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         .animate-spin {
             animation: spin 1s linear infinite;
+        }
+
+        /* Success Message Styles */
+        .success-message-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 3rem 2rem;
+            background: rgba(15, 23, 42, 0.9); /* Dark slate background */
+            backdrop-filter: blur(12px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #f8fafc;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            animation: fadeInScale 0.4s ease-out;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        @keyframes fadeInScale {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .success-icon-wrapper {
+            background: rgba(16, 185, 129, 0.2);
+            padding: 1rem;
+            border-radius: 50%;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .success-icon-wrapper i {
+            width: 48px;
+            height: 48px;
+            color: #10b981;
+        }
+
+        .success-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #fff 0%, #cbd5e1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .success-text {
+            color: #94a3b8;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .success-text strong {
+            color: #fff;
+        }
+
+        .success-actions {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Adjust modal for success state */
+        .modal.success-state {
+            background: transparent;
+            box-shadow: none;
+            padding: 0;
+            border: none;
         }
     `;
     document.head.appendChild(style);

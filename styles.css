@@ -327,11 +327,12 @@ img {
 }
 
 .header.scrolled {
-    /* Scrolled state might not be needed if not fixed, but keeping styles just in case logic remains */
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(12px) saturate(180%);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    padding: 0.5rem 0;
 }
 
 .nav {
@@ -453,7 +454,8 @@ img {
 
 .hero-stats {
     display: flex;
-    gap: var(--space-2xl);
+    gap: 3.5rem;
+    margin-top: 1rem;
 }
 
 .stat {
@@ -461,17 +463,29 @@ img {
 }
 
 .stat-number {
-    display: block;
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: var(--slate-900);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 3.5rem; /* Base vertical axis for both items */
+    font-size: 1.85rem; /* Scaled slightly larger for weight 600 */
+    line-height: 1;
+    font-weight: 600; /* Semi-Bold to match visual stroke weight */
+    color: var(--brand-accent);
+    margin-bottom: 1rem;
+}
+
+.stat-number i {
+    width: 3rem; /* Same scale as previous version */
+    height: 3rem;
+    stroke-width: 4.5px; /* Final visual weight to match 600 weight font */
 }
 
 .stat-label {
     font-size: 0.75rem;
     color: var(--slate-500);
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.1em;
+    opacity: 0.9;
 }
 
 /* App Mockup */
@@ -628,7 +642,7 @@ img {
    SECTIONS COMMON
    ========================================== */
 section {
-    padding: var(--space-3xl) 0;
+    padding: clamp(4rem, 8vw, 6rem) 0; /* Compact professional spacing */
 }
 
 .section-header {
@@ -720,57 +734,67 @@ section {
     background: var(--slate-50);
 }
 
-.features-grid {
+.features-split-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-xl);
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 3rem;
+}
+
+.feature-group-title {
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.5rem;
+}
+
+.feature-group-title i {
+    color: var(--brand-accent);
 }
 
 .feature-card {
-    padding: var(--space-xl);
+    display: flex;
+    gap: 1.5rem;
+    padding: 1.75rem;
     background: white;
-    border-radius: var(--radius-2xl);
+    border-radius: var(--radius-xl);
     border: 1px solid var(--slate-100);
     box-shadow: var(--shadow-sm);
     transition: all var(--transition-normal);
+    margin-bottom: 1.5rem;
+}
+
+.feature-card:last-child {
+    margin-bottom: 0;
 }
 
 .feature-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-5px);
     box-shadow: var(--shadow-lg);
-    border-color: var(--slate-200);
+    border-color: var(--brand-accent);
 }
 
 .feature-icon {
-    width: 48px;
-    height: 48px;
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--slate-100);
+    background: var(--slate-50);
     border-radius: var(--radius-lg);
-    margin-bottom: var(--space-lg);
-    color: var(--indigo-600);
+    color: var(--brand-accent);
     transition: all var(--transition-normal);
 }
 
-.feature-card:hover .feature-icon {
-    background: var(--primary);
-    color: white;
-    transform: scale(1.05);
+.feature-body h4 {
+    margin-bottom: 0.5rem;
+    font-size: 1.125rem;
 }
 
-.feature-icon i {
-    width: 24px;
-    height: 24px;
-}
-
-.feature-card h4 {
-    margin-bottom: var(--space-sm);
-}
-
-.feature-card p {
+.feature-body p {
     font-size: 0.875rem;
+    line-height: 1.5;
 }
 
 /* ==========================================
@@ -1106,22 +1130,29 @@ section {
 }
 
 .contact-form {
-    padding: var(--space-3xl);
-    background: rgba(255, 255, 255, 0.6);
-    backdrop-filter: blur(20px);
+    padding: clamp(2rem, 5vw, 3.5rem);
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border-radius: var(--radius-2xl);
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 
+        0 20px 50px -12px rgba(0, 0, 0, 0.08),
+        0 0 0 1px rgba(0, 0, 0, 0.02);
+    transition: transform var(--transition-normal);
+}
+
+.contact-form:hover {
+    transform: translateY(-2px);
 }
 
 .form-group label {
     display: block;
-    font-size: 0.75rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--slate-500);
-    margin-bottom: var(--space-xs);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--slate-700);
+    margin-bottom: 0.625rem;
+    transition: color var(--transition-fast);
 }
 
 .form-group input {
@@ -1130,16 +1161,17 @@ section {
     font-size: 1rem;
     font-family: inherit;
     border: 1px solid var(--slate-200);
-    border-radius: var(--radius-xl);
-    background: white;
+    border-radius: var(--radius-md);
+    background: rgba(255, 255, 255, 0.5);
     transition: all var(--transition-normal);
+    color: var(--slate-900);
 }
 
 .form-group input:focus {
     outline: none;
     border-color: var(--brand-accent);
-    box-shadow: 0 4px 20px rgba(255, 102, 0, 0.1);
-    transform: translateY(-2px);
+    background: white;
+    box-shadow: 0 0 0 4px rgba(255, 102, 0, 0.1);
 }
 
 .form-group input::placeholder {
@@ -1155,9 +1187,10 @@ section {
     align-items: center;
     justify-content: center;
     gap: var(--space-sm);
-    margin-top: var(--space-md);
-    font-size: 0.75rem;
+    margin-top: 1.5rem;
+    font-size: 0.8125rem;
     color: var(--slate-500);
+    opacity: 0.8;
 }
 
 .form-note i {
@@ -1478,8 +1511,9 @@ section {
 
 .animate-on-scroll {
     opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.6s ease-out;
+    transform: translateY(40px);
+    transition: opacity 1s cubic-bezier(0.2, 0.8, 0.2, 1), 
+                transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
 
     /* Respect reduced motion preferences */
     @media (prefers-reduced-motion: reduce) {
@@ -1729,3 +1763,397 @@ section {
         font-size: 1.5rem;
     }
 }
+/* ==========================================
+   NEW PRICING & UPSELLS STYLES
+   ========================================== */
+
+/* ==========================================
+   MASTERCLASS UI: UNIFIED & COMPACT OFFER
+   ========================================== */
+
+.unified-offer-wrapper {
+    width: 100%;
+    background: linear-gradient(135deg, #020617 0%, #0f172a 100%);
+    padding: 3rem 0;
+    margin: 3rem 0;
+    color: white;
+    border-top: 1px solid rgba(255, 102, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 102, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.unified-offer-container {
+    max-width: 1350px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: 350px 1px 1fr;
+    gap: 3.5rem;
+    align-items: center; /* Aligned center for better height balance */
+}
+
+/* Compact Main Plan */
+.compact-main-plan {
+    background: rgba(255, 255, 255, 0.02);
+    padding: 1.75rem;
+    border-radius: var(--radius-xl);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.plan-label {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 800;
+    color: var(--brand-accent);
+    letter-spacing: 0.15rem;
+    margin-bottom: 0.5rem;
+}
+
+.offer-header h3 {
+    color: white;
+    font-size: 1.5rem; /* Standard professional size */
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+}
+
+.plan-description {
+    font-size: 0.825rem;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.4;
+    margin-bottom: 1.5rem;
+}
+
+.offer-price {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: var(--radius-lg);
+    text-align: center;
+}
+
+.offer-price .amount {
+    display: block;
+    font-size: 2.25rem; /* Compact professional pricing */
+    font-weight: 800;
+    color: white;
+    line-height: 1;
+}
+
+.offer-price .term {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--brand-accent);
+    letter-spacing: 0.1rem;
+    margin-top: 0.25rem;
+    display: block;
+}
+
+.offer-features {
+    list-style: none;
+    margin-bottom: 1.5rem;
+}
+
+.offer-features li {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 0.5rem;
+}
+
+.offer-features li i {
+    width: 14px;
+    height: 14px;
+    color: #10b981;
+}
+
+.offer-note {
+    font-size: 0.65rem;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+/* Divider */
+.offer-divider {
+    width: 1px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Expansion Pack */
+.expansion-pack {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.pack-label {
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: var(--brand-accent);
+    letter-spacing: 0.2rem;
+    margin-bottom: 0.25rem;
+}
+
+.pack-header h4 {
+    color: white;
+    font-size: 1.75rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+}
+
+.pack-modules {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    height: 100%;
+}
+
+.module-item {
+    padding: 1.75rem 2.25rem;
+    background: rgba(255, 255, 255, 0.035);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-xl);
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.module-item:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 102, 0, 0.6);
+    transform: translateY(-15px);
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6), 
+                0 0 40px rgba(255, 102, 0, 0.2);
+    z-index: 2;
+}
+
+.module-item i {
+    width: 32px;
+    height: 32px;
+    background: rgba(255, 102, 0, 0.1);
+    color: var(--brand-accent);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.module-info h5 {
+    color: white;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+
+.module-info p {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+}
+
+.module-info strong {
+    font-size: 0.75rem;
+    color: var(--brand-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.05rem;
+    display: block;
+    margin-top: auto; /* Push to bottom */
+}
+
+.badge-discount {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: rgba(255, 102, 0, 0.15);
+    color: var(--brand-accent);
+    border-radius: 99px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.05rem;
+    margin-top: auto;
+}
+
+.module-item.electronica-item {
+    border-color: rgba(255, 102, 0, 0.2);
+    background: rgba(255, 102, 0, 0.05);
+}
+
+.module-info p strong {
+    color: white;
+    display: inline;
+}
+
+/* ==========================================
+   ANIMATIONS & PREMIUM EFFECTS
+   ========================================== */
+
+@keyframes fadeInUpStagger {
+    from { 
+        opacity: 0; 
+        transform: translateY(50px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+@keyframes floatIcon {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+@keyframes pulseGlow {
+    0% { box-shadow: 0 0 5px rgba(255, 102, 0, 0.4); }
+    50% { box-shadow: 0 0 20px rgba(255, 102, 0, 0.6); }
+    100% { box-shadow: 0 0 5px rgba(255, 102, 0, 0.4); }
+}
+
+.animate-stagger {
+    opacity: 0;
+}
+
+.unified-offer-wrapper.visible .animate-stagger {
+    animation: fadeInUpStagger 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.delay-100 { animation-delay: 0.1s !important; }
+.delay-200 { animation-delay: 0.25s !important; }
+.delay-300 { animation-delay: 0.4s !important; }
+
+.module-item i {
+    display: none;
+}
+
+.compact-main-plan .btn-primary {
+    animation: pulseGlow 2s infinite;
+}
+
+/* Premium Button Effects */
+.btn-primary {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -150%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        to right,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+    transform: rotate(45deg);
+    transition: all 0.6s ease;
+}
+
+.btn-primary:hover::after {
+    left: 150%;
+}
+
+/* Floating Animations */
+@keyframes float-y {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes float-x {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(15px); }
+}
+
+.hero-decoration .shape {
+    animation: float-y 6s ease-in-out infinite;
+}
+
+.hero-decoration .shape-2 {
+    animation: float-x 8s ease-in-out infinite;
+    animation-delay: 1s;
+}
+
+/* Premium Mockup Shadow */
+.app-mockup-real {
+    box-shadow: 0 50px 100px -20px rgba(15, 23, 42, 0.25),
+                0 30px 60px -30px rgba(0, 0, 0, 0.3),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+/* Scroll Indicator Animation */
+@keyframes bounce-subtle {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+    40% {transform: translateY(-10px);}
+    60% {transform: translateY(-5px);}
+}
+
+
+
+/* Responsive Masterclass Refinado */
+@media (max-width: 1200px) {
+    .unified-offer-container {
+        grid-template-columns: 320px 1px 1fr;
+        gap: 2rem;
+        max-width: 100%;
+    }
+    
+    .pack-modules {
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .unified-offer-container {
+        grid-template-columns: 1fr;
+        max-width: 800px;
+        gap: 0;
+    }
+    
+    .offer-divider {
+        display: none;
+    }
+    
+    .compact-main-plan {
+        margin-bottom: 3rem;
+    }
+    
+    .pack-modules {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+    
+    .expansion-pack h4 {
+        text-align: center;
+        margin-bottom: 2.5rem;
+    }
+    
+    .pack-label {
+        text-align: center;
+        display: block;
+    }
+}
+
+@media (max-width: 640px) {
+    .pack-modules {
+        grid-template-columns: 1fr;
+    }
+    
+    .module-item {
+        padding: 2rem;
+    }
+}
+
+
+
