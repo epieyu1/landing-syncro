@@ -166,7 +166,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     <h3 class="success-title">¡Solicitud enviada!</h3>
                     <p class="success-text">
                         Gracias por tu interés en <strong>Syncro Motos</strong>. 
-                        <br>Un asesor se pondrá en contacto contigo a través de WhatsApp o correo electrónico para coordinar tu prueba gratuita de 30 días.
+                        <br>Un asesor se pondrá en contacto contigo a través de WhatsApp o correo electrónico para coordinar tu prueba gratuita de 15 días.
                     </p>
                     <div class="success-actions">
                         <a href="#pricing" class="btn btn-primary success-cta" role="button">Ver Planes</a>
