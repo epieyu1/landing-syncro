@@ -466,18 +466,23 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 3.5rem; /* Base vertical axis for both items */
-    font-size: 1.85rem; /* Scaled slightly larger for weight 600 */
+    height: 3.5rem;
+    /* Base vertical axis for both items */
+    font-size: 1.4rem;
+    /* Scaled slightly larger for weight 600 */
     line-height: 1;
-    font-weight: 600; /* Semi-Bold to match visual stroke weight */
+    font-weight: 400;
+    /* Semi-Bold to match visual stroke weight */
     color: var(--brand-accent);
     margin-bottom: 1rem;
 }
 
 .stat-number i {
-    width: 3rem; /* Same scale as previous version */
+    width: 3rem;
+    /* Same scale as previous version */
     height: 3rem;
-    stroke-width: 4.5px; /* Final visual weight to match 600 weight font */
+    stroke-width: 4.5px;
+    /* Final visual weight to match 600 weight font */
 }
 
 .stat-label {
@@ -642,7 +647,8 @@ img {
    SECTIONS COMMON
    ========================================== */
 section {
-    padding: clamp(4rem, 8vw, 6rem) 0; /* Compact professional spacing */
+    padding: clamp(4rem, 8vw, 6rem) 0;
+    /* Compact professional spacing */
 }
 
 .section-header {
@@ -1129,7 +1135,7 @@ section {
     -webkit-backdrop-filter: blur(12px);
     border-radius: var(--radius-2xl);
     border: 1px solid rgba(255, 255, 255, 0.6);
-    box-shadow: 
+    box-shadow:
         0 20px 50px -12px rgba(0, 0, 0, 0.08),
         0 0 0 1px rgba(0, 0, 0, 0.02);
     transition: transform var(--transition-normal);
@@ -1505,8 +1511,8 @@ section {
 .animate-on-scroll {
     opacity: 0;
     transform: translateY(40px);
-    transition: opacity 1s cubic-bezier(0.2, 0.8, 0.2, 1), 
-                transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transition: opacity 1s cubic-bezier(0.2, 0.8, 0.2, 1),
+        transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
 
     /* Respect reduced motion preferences */
     @media (prefers-reduced-motion: reduce) {
@@ -1756,6 +1762,7 @@ section {
         font-size: 1.5rem;
     }
 }
+
 /* ==========================================
    NEW PRICING & UPSELLS STYLES
    ========================================== */
@@ -1783,7 +1790,8 @@ section {
     display: grid;
     grid-template-columns: 350px 1px 1fr;
     gap: 3.5rem;
-    align-items: center; /* Aligned center for better height balance */
+    align-items: center;
+    /* Aligned center for better height balance */
 }
 
 /* Compact Main Plan */
@@ -1808,7 +1816,8 @@ section {
 
 .offer-header h3 {
     color: white;
-    font-size: 1.5rem; /* Standard professional size */
+    font-size: 1.5rem;
+    /* Standard professional size */
     font-weight: 800;
     margin-bottom: 0.5rem;
 }
@@ -1830,7 +1839,8 @@ section {
 
 .offer-price .amount {
     display: block;
-    font-size: 2.25rem; /* Compact professional pricing */
+    font-size: 2.25rem;
+    /* Compact professional pricing */
     font-weight: 800;
     color: white;
     line-height: 1;
@@ -1923,8 +1933,8 @@ section {
     background: rgba(255, 255, 255, 0.06);
     border-color: rgba(255, 102, 0, 0.6);
     transform: translateY(-15px);
-    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6), 
-                0 0 40px rgba(255, 102, 0, 0.2);
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6),
+        0 0 40px rgba(255, 102, 0, 0.2);
     z-index: 2;
 }
 
@@ -1960,7 +1970,8 @@ section {
     text-transform: uppercase;
     letter-spacing: 0.05rem;
     display: block;
-    margin-top: auto; /* Push to bottom */
+    margin-top: auto;
+    /* Push to bottom */
 }
 
 .badge-discount {
@@ -1990,25 +2001,41 @@ section {
    ========================================== */
 
 @keyframes fadeInUpStagger {
-    from { 
-        opacity: 0; 
-        transform: translateY(50px); 
+    from {
+        opacity: 0;
+        transform: translateY(50px);
     }
-    to { 
-        opacity: 1; 
-        transform: translateY(0); 
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
 @keyframes floatIcon {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-5px); }
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
 }
 
 @keyframes pulseGlow {
-    0% { box-shadow: 0 0 5px rgba(255, 102, 0, 0.4); }
-    50% { box-shadow: 0 0 20px rgba(255, 102, 0, 0.6); }
-    100% { box-shadow: 0 0 5px rgba(255, 102, 0, 0.4); }
+    0% {
+        box-shadow: 0 0 5px rgba(255, 102, 0, 0.4);
+    }
+
+    50% {
+        box-shadow: 0 0 20px rgba(255, 102, 0, 0.6);
+    }
+
+    100% {
+        box-shadow: 0 0 5px rgba(255, 102, 0, 0.4);
+    }
 }
 
 .animate-stagger {
@@ -2019,9 +2046,17 @@ section {
     animation: fadeInUpStagger 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 }
 
-.delay-100 { animation-delay: 0.1s !important; }
-.delay-200 { animation-delay: 0.25s !important; }
-.delay-300 { animation-delay: 0.4s !important; }
+.delay-100 {
+    animation-delay: 0.1s !important;
+}
+
+.delay-200 {
+    animation-delay: 0.25s !important;
+}
+
+.delay-300 {
+    animation-delay: 0.4s !important;
+}
 
 .module-item i {
     display: none;
@@ -2044,12 +2079,10 @@ section {
     left: -150%;
     width: 200%;
     height: 200%;
-    background: linear-gradient(
-        to right,
-        transparent,
-        rgba(255, 255, 255, 0.3),
-        transparent
-    );
+    background: linear-gradient(to right,
+            transparent,
+            rgba(255, 255, 255, 0.3),
+            transparent);
     transform: rotate(45deg);
     transition: all 0.6s ease;
 }
@@ -2060,13 +2093,27 @@ section {
 
 /* Floating Animations */
 @keyframes float-y {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
 }
 
 @keyframes float-x {
-    0%, 100% { transform: translateX(0); }
-    50% { transform: translateX(15px); }
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(15px);
+    }
 }
 
 .hero-decoration .shape {
@@ -2081,15 +2128,28 @@ section {
 /* Premium Mockup Shadow */
 .app-mockup-real {
     box-shadow: 0 50px 100px -20px rgba(15, 23, 42, 0.25),
-                0 30px 60px -30px rgba(0, 0, 0, 0.3),
-                inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+        0 30px 60px -30px rgba(0, 0, 0, 0.3),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.1);
 }
 
 /* Scroll Indicator Animation */
 @keyframes bounce-subtle {
-    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-    40% {transform: translateY(-10px);}
-    60% {transform: translateY(-5px);}
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-10px);
+    }
+
+    60% {
+        transform: translateY(-5px);
+    }
 }
 
 
@@ -2101,7 +2161,7 @@ section {
         gap: 2rem;
         max-width: 100%;
     }
-    
+
     .pack-modules {
         gap: 1.5rem;
     }
@@ -2113,25 +2173,25 @@ section {
         max-width: 800px;
         gap: 0;
     }
-    
+
     .offer-divider {
         display: none;
     }
-    
+
     .compact-main-plan {
         margin-bottom: 3rem;
     }
-    
+
     .pack-modules {
         grid-template-columns: repeat(2, 1fr);
         gap: 2rem;
     }
-    
+
     .expansion-pack h4 {
         text-align: center;
         margin-bottom: 2.5rem;
     }
-    
+
     .pack-label {
         text-align: center;
         display: block;
@@ -2142,11 +2202,8 @@ section {
     .pack-modules {
         grid-template-columns: 1fr;
     }
-    
+
     .module-item {
         padding: 2rem;
     }
 }
-
-
-
