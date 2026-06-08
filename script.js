@@ -6,6 +6,74 @@ document.addEventListener('DOMContentLoaded', function () {
     // Initialize Lucide icons
     lucide.createIcons();
 
+    // Keep public installer buttons aligned with the distribution release.
+    // §WHY-DOWNLOAD-ROUTE: browser clicks must start from this landing domain,
+    // not from github.com, so customers are not exposed to repo pages or stale
+    // GitHub sessions asking for 2FA before the release-asset redirect.
+    const syncroReleaseApiUrl = 'https://api.github.com/repos/epieyu1/Syncro-Distribucion/releases/latest';
+
+    const findReleaseAsset = (assets, pattern) => (
+        assets.find(asset => pattern.test(asset.name) && !asset.name.endsWith('.blockmap'))
+    );
+
+    const updateDownloadCard = ({ platform, asset, release, label }) => {
+        const card = document.querySelector(`[data-download-platform="${platform}"]`);
+        if (!card) return;
+
+        if (!asset) {
+            if (platform === 'mac-intel') card.hidden = true;
+            return;
+        }
+
+        if (card.dataset.downloadRoute) {
+            card.href = card.dataset.downloadRoute;
+        }
+        card.hidden = false;
+
+        const versionLabel = card.querySelector('[data-download-version]');
+        if (versionLabel) {
+            const version = release.tag_name || `v${release.name || ''}`.trim();
+            versionLabel.textContent = `${version} - ${label}`;
+        }
+    };
+
+    const syncDownloadLinks = async () => {
+        try {
+            const response = await fetch(syncroReleaseApiUrl, {
+                headers: { Accept: 'application/vnd.github+json' }
+            });
+            if (!response.ok) return;
+
+            const release = await response.json();
+            const assets = Array.isArray(release.assets) ? release.assets : [];
+
+            updateDownloadCard({
+                platform: 'windows',
+                release,
+                label: 'Instalador NSIS',
+                asset: findReleaseAsset(assets, /^Syncro\.Motos\.Setup\.\d+\.\d+\.\d+\.exe$/)
+            });
+
+            updateDownloadCard({
+                platform: 'mac-arm64',
+                release,
+                label: 'ARM64 .dmg',
+                asset: findReleaseAsset(assets, /^Syncro\.Motos-\d+\.\d+\.\d+-arm64\.dmg$/)
+            });
+
+            updateDownloadCard({
+                platform: 'mac-intel',
+                release,
+                label: 'x64 .dmg',
+                asset: findReleaseAsset(assets, /^Syncro\.Motos-\d+\.\d+\.\d+-x64\.dmg$/)
+            });
+        } catch (_) {
+            // Static fallback links remain available.
+        }
+    };
+
+    syncDownloadLinks();
+
     // ==========================================
     // HEADER SCROLL BEHAVIOR
     // ==========================================
