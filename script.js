@@ -7,7 +7,9 @@ document.addEventListener('DOMContentLoaded', function () {
     lucide.createIcons();
 
     // Keep public installer buttons aligned with the distribution release.
-    // Fallback hrefs in index.html stay valid if GitHub API is unavailable.
+    // §WHY-DOWNLOAD-ROUTE: browser clicks must start from this landing domain,
+    // not from github.com, so customers are not exposed to repo pages or stale
+    // GitHub sessions asking for 2FA before the release-asset redirect.
     const syncroReleaseApiUrl = 'https://api.github.com/repos/epieyu1/Syncro-Distribucion/releases/latest';
 
     const findReleaseAsset = (assets, pattern) => (
@@ -23,7 +25,9 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
 
-        card.href = asset.browser_download_url;
+        if (card.dataset.downloadRoute) {
+            card.href = card.dataset.downloadRoute;
+        }
         card.hidden = false;
 
         const versionLabel = card.querySelector('[data-download-version]');
